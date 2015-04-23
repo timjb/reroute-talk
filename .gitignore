@@ -1,0 +1,4 @@
+*.sublime-workspace
+.cabal-sandbox
+cabal.sandbox.config
+curry-recipes/dist
