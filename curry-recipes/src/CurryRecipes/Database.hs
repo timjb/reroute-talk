@@ -1,10 +1,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings #-}
 
-module CurryRecipes.Database
-  ( Recipe (..)
-  , database
-  ) where
+module CurryRecipes.Database where
 
 import Paths_curry_recipes
 import Control.Monad (sequence)
