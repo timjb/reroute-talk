@@ -61,8 +61,12 @@ renderRoute' (VarCons pathXs) (HCons val paramXs) =
     ( toPathPiece val : renderRoute' pathXs paramXs)
 renderRoute' _ _ = error "This will never happen."
 
-renderRoute :: Path as -> HVect as -> T.Text
-renderRoute p h = T.intercalate "/" $ renderRoute' p h
+renderRoute :: HasRep as => Path as -> HVectElim as T.Text
+renderRoute p = hVectCurry (T.intercalate "/" . renderRoute' p)
+
+-- Man kann
+--   getRep :: Path as -> Rep as
+-- schreiben und damit sogar die Voraussetzung `HasRep as` fallen lassen.
 
 matchRoute' :: Path as -> [T.Text] -> Maybe (HVect as)
 matchRoute' Empty [] = Just HNil
