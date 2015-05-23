@@ -79,3 +79,9 @@ matchRoute' (VarCons ps) (p':ps') = HCons <$> fromPathPiece p' <*> matchRoute' p
 
 matchRoute :: Path as -> T.Text -> HVectElim as a -> Maybe a
 matchRoute path url elim = hVectUncurry elim <$> matchRoute' path (T.splitOn "/" url)
+
+-- Example
+type BlogPostId = Int
+
+blogPostR :: Path '[BlogPostId]
+blogPostR = "blog" <//> var

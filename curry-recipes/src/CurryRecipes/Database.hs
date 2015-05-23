@@ -16,6 +16,7 @@ data RecipeCategory = Indian | Thai deriving (Show, Read, Eq)
 instance PathPiece RecipeCategory where
   fromPathPiece "indian" = Just Indian
   fromPathPiece "thai" = Just Thai
+  fromPathPiece _ = Nothing
   toPathPiece Indian = "indian"
   toPathPiece Thai = "thai"
 

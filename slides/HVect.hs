@@ -11,6 +11,9 @@ data HVect (ts :: [*]) where
   HNil :: HVect '[]
   HCons :: t -> HVect ts -> HVect (t ': ts)
 
+ex :: HVect '[Int, Char, Bool -> Bool]
+ex = HCons 313 (HCons 'c' (HCons (const True) HNil))
+
 type family Append (as :: [*]) (bs :: [*]) :: [*] where
   Append '[] bs = bs
   Append (a ': as) bs = a ': (Append as bs)
