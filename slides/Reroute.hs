@@ -43,6 +43,8 @@ instance (a ~ '[]) => IsString (Path a) where
 -- implementiert, muss a ~ '[] gelten. Also setze a := '[]".
 -- Die falsche Instanz sagt lediglich: Wenn a = '[], dann implementiert (Path a)
 -- die Klasse IsString.
+--
+-- (siehe auch: http://chrisdone.com/posts/haskell-constraint-trick)
 
 -- | The root of a path piece. Use to define a handler for "/"
 root :: Path '[]
